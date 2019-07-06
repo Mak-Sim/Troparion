@@ -26,5 +26,16 @@ for N=1:n
    age_regression(N,:) = x';
 end
 
+% 3. Remove age offset
+% Controls
+for M=1:m      
+    data_h(M).feature_vec = data_h(M).feature_vec - (age_regression(:,1)*data_h(M).age + age_regression(:,2))';
+end
+
+% Pathology
+m = length(data_p);
+for M=1:m   
+    data_p(M).feature_vec = data_p(M).feature_vec - (age_regression(:,1)*data_p(M).age + age_regression(:,2))';
+end
 end
 

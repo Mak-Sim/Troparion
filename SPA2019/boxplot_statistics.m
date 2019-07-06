@@ -20,25 +20,25 @@ end
 % Uncomment the following lines to see Jitter:loc statistics
 % % feature = 'J_{loc}';
 % % ind = 1;
-% % range_feature = linspace(0,2.0,100);  
+% % range_feature = linspace(-0.7,1.4,100);  
 % % band_width = 0.070;
 
 % Uncomment the following lines Jitter:RAP statistics
-feature = 'J_{rap}';
-ind = 2;
-range_feature = linspace(0,1.1,100);  
-band_width = 0.04;
+% % feature = 'J_{rap}';
+% % ind = 2;
+% % range_feature = linspace(0,1.1,100);  
+% % band_width = 0.04;
 
 % Uncomment the following lines to see Jitter:PPQ5 statistics
 % % feature = 'J_{ppq5}';
 % % ind = 3;
-% % range_feature = linspace(0,1.1,100);  
-% % band_width = 0.04;
+% % range_feature = linspace(-0.5,0.8,100);  
+% % band_width = 0.05;
 
 % Uncomment the following lines to see Shimmer:loc statistics
 % % feature = 'Sh_{loc}';
 % % ind = 4;
-% % range_feature = linspace(0,12,100); 
+% % range_feature = linspace(-5,7,100); 
 % % band_width = 0.4;
 
 % Uncomment the following lines to see APQ3 statistics
@@ -56,18 +56,18 @@ band_width = 0.04;
 % Uncomment the following lines to see APQ11 statistics
 % % feature = 'Sh_{apq11}';
 % % ind = 7;
-% % range_feature = linspace(0,9,80); 
+% % range_feature = linspace(-4,5,80); 
 % % band_width = 0.3;
 
 % Uncomment the following lines to see PVI statistics
-% % if (strcmpi(type,'trop'))
-% %     feature = 'PVI'; % PVI only for Tropation-based dataset
-% %     ind = 8;
-% %     range_feature = linspace(0,0.23,100); 
-% %     band_width = 0.005;
-% % else
-% %     error('Wrong dataset.');
-% % end
+if (strcmpi(type,'trop'))
+    feature = 'PVI'; % PVI only for Tropation-based dataset
+    ind = 8;
+    range_feature = linspace(-0.06,0.09,100); 
+    band_width = 0.006;
+else
+    error('Wrong dataset.');
+end
 
 
 dataset_h_size = length(dataset_h);

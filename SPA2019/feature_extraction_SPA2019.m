@@ -86,7 +86,7 @@ for i=1:length(file)
     end
         
 end
-
+%%
 [dataset_trop_p, dataset_trop_h] = age_effect_remove(dataset_trop_p, dataset_trop_h);
 
 % save('dataset_trop_h.mat','dataset_trop_h');

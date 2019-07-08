@@ -89,5 +89,5 @@ end
 %%
 [dataset_trop_p, dataset_trop_h] = age_effect_remove(dataset_trop_p, dataset_trop_h);
 
-% save('dataset_trop_h.mat','dataset_trop_h');
-% save('dataset_trop_p.mat','dataset_trop_p');
+save('dataset_trop_h.mat','dataset_trop_h');
+save('dataset_trop_p.mat','dataset_trop_p');

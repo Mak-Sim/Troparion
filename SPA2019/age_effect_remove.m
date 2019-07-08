@@ -21,8 +21,8 @@ for N=1:n
     b = features(N,:)';
     x = lsqr(A,b);
     % infographics
-%     plot(A(:,1),b,'o')
-%     hold on; plot(A(:,1),A(:,1)*x(1)+x(2));
+% %     plot(A(:,1),b,'o')
+% %     hold on; plot(A(:,1),A(:,1)*x(1)+x(2));
    age_regression(N,:) = x';
 end
 

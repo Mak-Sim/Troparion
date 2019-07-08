@@ -3,8 +3,8 @@ clear all;
 addpath('LDA_toolset');
 
 % Preparing data set
-type = 'trop';  % features obtained using Troparion toolset
-% type = 'praat'; % features obtained using PRAAT system
+% type = 'trop';  % features obtained using Troparion toolset
+type = 'praat'; % features obtained using PRAAT system
 omit_PVI = false;
 
 if (strcmpi(type,'trop'))
@@ -13,10 +13,10 @@ if (strcmpi(type,'trop'))
     dataset_h = dataset_trop_h;
     dataset_p = dataset_trop_p;
 elseif (strcmpi(type,'praat'))
-    % Control/079.wav reanalyse !!!!
     Dataset_praat;
     dataset_h = dataset_praat_h;
     dataset_p = dataset_praat_p;
+    [dataset_p, dataset_h] = age_effect_remove(dataset_p, dataset_h);
 else
     error('Unknown source type.');
 end
@@ -33,7 +33,7 @@ X = zeros(N_h+N_p,m);
 y = zeros(N_h+N_p,1);
 % Relabeling and copy
 for i=1:N_p    
-   X(i,:) = dataset_p(i).feature_vec(1:m);    
+    X(i,:) = dataset_p(i).feature_vec(1:m);    
     y(i) = 1;
 end
 

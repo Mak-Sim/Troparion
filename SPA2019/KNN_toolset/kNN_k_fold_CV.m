@@ -1,16 +1,15 @@
 function [acc_bar, acc_sd, sens_bar, sens_sd,spec_bar, spec_sd]...
-                    = kNN_k_fold_CV(X,y,K)
+                    = kNN_k_fold_CV(X,y,K,CV_iter)
 % Точность классификатора будем определять методом 
 % K-вложенной перекрёстной проверки
 
 n = size(X,1);      % Размер обучающей выборки 
 
-trial_num = 40;
-acc_cv = zeros(1,trial_num);
-Sens= zeros(1,trial_num); 
-Spec= zeros(1,trial_num);
+acc_cv = zeros(1,CV_iter);
+Sens= zeros(1,CV_iter); 
+Spec= zeros(1,CV_iter);
 
-for trial =1:trial_num 
+for trial =1:CV_iter 
    
     fold_size = round(n/K);
     perm_inds = randperm(n);    
@@ -52,15 +51,15 @@ end
 fprintf('Feature num: %d\n',size(X,2));
 
 acc_bar = mean(acc_cv);
-acc_sd = sqrt(1/(trial_num-1)*sum((acc_cv-acc_bar).^2));
+acc_sd = sqrt(1/(CV_iter-1)*sum((acc_cv-acc_bar).^2));
 fprintf('Accuracy: %2.1f+/-%2.1f \n',acc_bar*100,acc_sd*100);
 
 sens_bar = mean(Sens);
-sens_sd = sqrt(1/(trial_num-1)*sum((Sens-sens_bar).^2));
+sens_sd = sqrt(1/(CV_iter-1)*sum((Sens-sens_bar).^2));
 fprintf('Sensitivity: %2.1f+/-%2.1f \n',sens_bar*100,sens_sd*100);
 
 spec_bar = mean(Spec);
-spec_sd = sqrt(1/(trial_num-1)*sum((Spec-spec_bar).^2));
+spec_sd = sqrt(1/(CV_iter-1)*sum((Spec-spec_bar).^2));
 fprintf('Specificity: %2.1f+/-%2.1f \n',spec_bar*100,spec_sd*100);
 
 return;

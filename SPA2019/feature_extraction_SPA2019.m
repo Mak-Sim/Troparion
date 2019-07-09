@@ -60,7 +60,7 @@ for i=1:length(file)
     fprintf('File: %s\n', file(i).name);
     fprintf('Jitter:local = %1.2f %% \n', J_loc);
     fprintf('Jitter:RAP   = %1.2f %% \n', J_rap);
-    fprintf('Jitter:PPQ5  = %1.2f %% (IRAPT)\n', J_ppq5);            
+    fprintf('Jitter:PPQ5  = %1.2f %%\n', J_ppq5);            
     fprintf('Shimmer:local = %1.2f %% \n', S_loc);
     fprintf('Shimmer:APQ3  = %1.2f %% \n', S_apq3);
     fprintf('Shimmer:APQ5  = %1.2f %% \n', S_apq5);
@@ -87,7 +87,6 @@ for i=1:length(file)
         
 end
 %%
-[dataset_trop_p, dataset_trop_h] = age_effect_remove(dataset_trop_p, dataset_trop_h);
 
 save('dataset_trop_h.mat','dataset_trop_h');
 save('dataset_trop_p.mat','dataset_trop_p');

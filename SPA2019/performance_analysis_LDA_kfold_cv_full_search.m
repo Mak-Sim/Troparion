@@ -1,7 +1,6 @@
 clear all;
 
 addpath('LDA_toolset');
-addpath('KNN_toolset');
 
 % Preparing data set
 type = 'trop';  % features obtained using Troparion toolset
@@ -14,6 +13,8 @@ if (strcmpi(type,'trop'))
     [dataset_p, dataset_h] = age_effect_remove(dataset_trop_p, dataset_trop_h);
 elseif (strcmpi(type,'praat'))
     Dataset_praat;
+%     dataset_p = dataset_praat_p;
+%     dataset_h = dataset_praat_h;
     [dataset_p, dataset_h] = age_effect_remove(dataset_praat_p, dataset_praat_h);
 else
     error('Unknown source type.');
@@ -54,7 +55,7 @@ end
 
 %% Full search
 N_var = 2^m;
-num_cv_iter = 40;
+% num_cv_iter = 40;
 K = 7;  % number of folds
 
 acc_mean = zeros(1,N_var);
@@ -68,7 +69,7 @@ avg_rec = zeros(1,N_var);
 for N=1:N_var
     best_feature_ind = find(dec2bin(N,m)=='1');
     [acc_mean(N),acc_std(N), sens_mean(N),sens_std(N), spec_mean(N),spec_std(N)] = ...
-        kNN_k_fold_CV(X(:,best_feature_ind),y,K,num_cv_iter);   
+        LDA_k_fold_CV(X(:,best_feature_ind),y,K);   
     avg_rec(N) = (sens_mean(N)+spec_mean(N))/2;
     fprintf('Number of featues %d/%d \n',N,N_var);
 end

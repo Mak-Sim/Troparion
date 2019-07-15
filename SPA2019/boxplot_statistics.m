@@ -5,12 +5,12 @@ type = 'trop';  % parameters obtained using Troparion toolset
 if (strcmpi(type,'trop'))
     load('dataset_trop_h.mat');
     load('dataset_trop_p.mat');
-    dataset_h = dataset_trop_h;
     dataset_p = dataset_trop_p;
+    dataset_h = dataset_trop_h;
+    [dataset_p, dataset_h] = age_effect_remove(dataset_trop_p, dataset_trop_h);
 elseif (strcmpi(type,'praat'))
     Dataset_praat;
-    dataset_h = dataset_praat_h;
-    dataset_p = dataset_praat_p;
+    [dataset_p, dataset_h] = age_effect_remove(dataset_praat_p, dataset_praat_h);
 else
     error('Unknown source type.');
 end
@@ -18,22 +18,25 @@ end
 %% 2. Choose one parameter
 
 % Uncomment the following lines to see Jitter:loc statistics
-% % feature = 'J_{loc}';
-% % ind = 1;
-% % range_feature = linspace(-0.7,1.4,100);  
-% % band_width = 0.070;
+% feature = 'J_{loc}';
+% ind = 1;
+% range_feature = linspace(0.0,2.1,100);   
+% % range_feature = linspace(-0.7,1.4,100); % age effect removed
+% band_width = 0.070;
 
 % Uncomment the following lines Jitter:RAP statistics
 % % feature = 'J_{rap}';
 % % ind = 2;
-% % range_feature = linspace(0,1.1,100);  
+% % % range_feature = linspace(0,1.1,100);  
+% % range_feature = linspace(-0.5,0.9,100); % age effect removed
 % % band_width = 0.04;
 
 % Uncomment the following lines to see Jitter:PPQ5 statistics
-% % feature = 'J_{ppq5}';
-% % ind = 3;
-% % range_feature = linspace(-0.5,0.8,100);  
-% % band_width = 0.05;
+feature = 'J_{ppq5}';
+ind = 3;
+% range_feature = linspace(0.0,1.1,100);
+range_feature = linspace(-0.4,0.8,100);  % age effect removed
+band_width = 0.05;
 
 % Uncomment the following lines to see Shimmer:loc statistics
 % % feature = 'Sh_{loc}';
@@ -60,14 +63,14 @@ end
 % % band_width = 0.3;
 
 % Uncomment the following lines to see PVI statistics
-if (strcmpi(type,'trop'))
-    feature = 'PVI'; % PVI only for Tropation-based dataset
-    ind = 8;
-    range_feature = linspace(-0.06,0.09,100); 
-    band_width = 0.006;
-else
-    error('Wrong dataset.');
-end
+% % if (strcmpi(type,'trop'))
+% %     feature = 'PVI'; % PVI only for Tropation-based dataset
+% %     ind = 8;
+% %     range_feature = linspace(-0.06,0.09,100); 
+% %     band_width = 0.006;
+% % else
+% %     error('Wrong dataset.');
+% % end
 
 
 dataset_h_size = length(dataset_h);

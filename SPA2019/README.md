@@ -7,10 +7,15 @@ _M. Vashkevich, Yu. Rushkevich, A. Petrovsky "Bulbar ALS Detection Based on Anal
 15 ALS patients voice recordings, 39 healthy controls.
 
 ## Voices parameters
-![J_{loc}_dens_box_plot](D:\vashkevich.m\Docs\Science\Matlab\Troparion\SPA2019\image\J_{loc}_dens_box_plot.png)
-![J_{ppq5}_dens_box_plot](D:\vashkevich.m\Docs\Science\Matlab\Troparion\SPA2019\image\J_{ppq5}_dens_box_plot.png)
+| Raw data   | Age corrected |
+| :--:       | :--:          |
+|<img src="image/J_{loc}_stat_no_age_corr.png" width="400"> | <img src="image/J_{loc}_dens_box_plot.png" width="400">|
+|<img src="image/J_rap_stat_no_age_corr.png" width="400"> | <img src="image/J_rap_stat_with_age_corr.png" width="400">|
+|<img src="image/J_ppq5_stat_no_age_corr.png" width="400"> | <img src="image/J_ppq5_stat_with_age_corr.png" width="400">|
+
 
 ## Comparison with PRAAT
+TODO
 
 ##  Database details
 *Table - ALS patients*
@@ -34,6 +39,7 @@ _M. Vashkevich, Yu. Rushkevich, A. Petrovsky "Bulbar ALS Detection Based on Anal
 | 068   | 40   | male |
 
 *Table - Healthy controls*
+
 | ID   | Age  | Sex  |
 | :--: | :--: | :--: |
 | 002  | 64   | female    |

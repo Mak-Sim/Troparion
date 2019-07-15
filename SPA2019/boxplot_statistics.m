@@ -2,12 +2,17 @@
 type = 'trop';  % parameters obtained using Troparion toolset
 % type = 'praat'; % parameters obtained using PRAAT system
 
+age_corr = true; 
+
 if (strcmpi(type,'trop'))
     load('dataset_trop_h.mat');
     load('dataset_trop_p.mat');
-    dataset_p = dataset_trop_p;
-    dataset_h = dataset_trop_h;
-    [dataset_p, dataset_h] = age_effect_remove(dataset_trop_p, dataset_trop_h);
+    if age_corr    
+        [dataset_p, dataset_h] = age_effect_remove(dataset_trop_p, dataset_trop_h);
+    else
+        dataset_p = dataset_trop_p;
+        dataset_h = dataset_trop_h;
+    end
 elseif (strcmpi(type,'praat'))
     Dataset_praat;
     [dataset_p, dataset_h] = age_effect_remove(dataset_praat_p, dataset_praat_h);
@@ -32,17 +37,21 @@ end
 % % band_width = 0.04;
 
 % Uncomment the following lines to see Jitter:PPQ5 statistics
-feature = 'J_{ppq5}';
-ind = 3;
-% range_feature = linspace(0.0,1.1,100);
-range_feature = linspace(-0.4,0.8,100);  % age effect removed
-band_width = 0.05;
+% % feature = 'J_{ppq5}';
+% % ind = 3;
+% % % range_feature = linspace(0.0,1.1,100);
+% % range_feature = linspace(-0.4,0.8,100);  % age effect removed
+% % band_width = 0.05;
 
 % Uncomment the following lines to see Shimmer:loc statistics
-% % feature = 'Sh_{loc}';
-% % ind = 4;
-% % range_feature = linspace(-5,7,100); 
-% % band_width = 0.4;
+feature = 'Sh_{loc}';
+ind = 4;
+if age_corr
+    range_feature = linspace(-5,7,100); 
+else
+    range_feature = linspace(0,10,100); 
+end
+band_width = 0.4;
 
 % Uncomment the following lines to see APQ3 statistics
 % % feature = 'Sh_{apq3}';
@@ -95,6 +104,11 @@ for i=1:dataset_p_size
 end
 feature_p = feature_p(1:k);
 
+% if age_corr
+%     feature = [feature '_with_age_corr'];
+% else    
+%     feature = [feature '_no_age_corr'];
+% end
 
 feature_dens_and_boxplot(feature_h, feature_p, feature, band_width,[min(range_feature) max(range_feature)])
 

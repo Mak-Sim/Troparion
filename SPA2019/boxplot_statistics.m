@@ -3,6 +3,7 @@ type = 'trop';  % parameters obtained using Troparion toolset
 % type = 'praat'; % parameters obtained using PRAAT system
 
 age_corr = true; 
+% age_corr = false;
 
 if (strcmpi(type,'trop'))
     load('dataset_trop_h.mat');
@@ -44,32 +45,45 @@ end
 % % band_width = 0.05;
 
 % Uncomment the following lines to see Shimmer:loc statistics
-feature = 'Sh_{loc}';
-ind = 4;
-if age_corr
-    range_feature = linspace(-5,7,100); 
-else
-    range_feature = linspace(0,10,100); 
-end
-band_width = 0.4;
+% feature = 'S_{loc}';
+% ind = 4;
+% if age_corr
+%     range_feature = linspace(-5,7,100); 
+% else
+%     range_feature = linspace(0,10,100); 
+% end
+% band_width = 0.4;
 
 % Uncomment the following lines to see APQ3 statistics
-% % feature = 'Sh_{apq3}';
+% % feature = 'S_{apq3}';
 % % ind = 5;
-% % range_feature = linspace(0,7,80); 
+% % if age_corr
+% %     range_feature = linspace(-3,5,100);
+% % else
+% %     range_feature = linspace(-1,7,100); 
+% % end
 % % band_width = 0.4;
 
 % Uncomment the following lines to see APQ5 statistics
-% % feature = 'Sh_{apq5}';
+% % feature = 'S_{apq5}';
 % % ind = 6;
-% % range_feature = linspace(0,8,80); 
+% % if age_corr
+% %     range_feature = linspace(-2.8,4.1,100);
+% % else
+% %     range_feature = linspace(-0.5,6.2,100);
+% % end 
 % % band_width = 0.4;
 
 % Uncomment the following lines to see APQ11 statistics
-% % feature = 'Sh_{apq11}';
-% % ind = 7;
-% % range_feature = linspace(-4,5,80); 
-% % band_width = 0.3;
+feature = 'S_{apq11}';
+ind = 7;
+ 
+if age_corr    
+    range_feature = linspace(-3.1,5.0,100);
+else
+    range_feature = linspace(-0.2,8.2,100);
+end
+band_width = 0.3;
 
 % Uncomment the following lines to see PVI statistics
 % % if (strcmpi(type,'trop'))

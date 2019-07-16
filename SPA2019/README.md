@@ -9,11 +9,13 @@ _M. Vashkevich, Yu. Rushkevich, A. Petrovsky "Bulbar ALS Detection Based on Anal
 ## Voices parameters
 | Raw data   | Age corrected |
 | :--:       | :--:          |
-|<img src="image/J_{loc}_stat_no_age_corr.png" width="400"> | <img src="image/J_{loc}_dens_box_plot.png" width="400">|
-|<img src="image/J_rap_stat_no_age_corr.png" width="400"> | <img src="image/J_rap_stat_with_age_corr.png" width="400">|
-|<img src="image/J_ppq5_stat_no_age_corr.png" width="400"> | <img src="image/J_ppq5_stat_with_age_corr.png" width="400">|
-|<img src="image/S_loc_stat_no_age_corr.png" width="400"> | <img src="image/S_loc_with_age_corr.png" width="400">|
-
+|Jitter::loc<img src="image/J_{loc}_stat_no_age_corr.png" width="400"> | Jitter::loc<img src="image/J_{loc}_dens_box_plot.png" width="400">|
+|Jitter::RAP<img src="image/J_rap_stat_no_age_corr.png" width="400"> | Jitter::RAP<img src="image/J_rap_stat_with_age_corr.png" width="400">|
+|Jitter::PPQ<img src="image/J_ppq5_stat_no_age_corr.png" width="400"> | Jitter::PPQ<img src="image/J_ppq5_stat_with_age_corr.png" width="400">|
+|Shimmer::loc<img src="image/S_loc_stat_no_age_corr.png" width="400"> | Shimmer::loc<img src="image/S_loc_with_age_corr.png" width="400">|
+|Shimmer::APQ3<img src="image/S_apq3_stat_no_age_corr.png" width="400"> | Shimmer::APQ3<img src="image/S_apq3_stat_with_age_corr.png" width="400">|
+|Shimmer::APQ5<img src="image/S_apq5_stat_no_age_corr.png" width="400"> | Shimmer::APQ5<img src="image/S_apq5_stat_with_age_corr.png" width="400">|
+|Shimmer::APQ11<img src="image/S_apq11_stat_no_age_corr.png" width="400"> | Shimmer::APQ11<img src="image/S_apq11_stat_with_age_corr.png" width="400">|
 
 ## Comparison with PRAAT
 TODO

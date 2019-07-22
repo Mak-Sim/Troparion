@@ -75,25 +75,30 @@ end
 % % band_width = 0.4;
 
 % Uncomment the following lines to see APQ11 statistics
-feature = 'S_{apq11}';
-ind = 7;
- 
-if age_corr    
-    range_feature = linspace(-3.1,5.0,100);
-else
-    range_feature = linspace(-0.2,8.2,100);
-end
-band_width = 0.3;
+% % feature = 'S_{apq11}';
+% % ind = 7;
+% %  
+% % if age_corr    
+% %     range_feature = linspace(-3.1,5.0,100);
+% % else
+% %     range_feature = linspace(-0.2,8.2,100);
+% % end
+% % band_width = 0.3;
 
 % Uncomment the following lines to see PVI statistics
-% % if (strcmpi(type,'trop'))
-% %     feature = 'PVI'; % PVI only for Tropation-based dataset
-% %     ind = 8;
-% %     range_feature = linspace(-0.06,0.09,100); 
-% %     band_width = 0.006;
-% % else
-% %     error('Wrong dataset.');
-% % end
+if (strcmpi(type,'trop'))
+    feature = 'PVI'; % PVI only for Tropation-based dataset
+    ind = 8;
+    if age_corr    
+        range_feature = linspace(-0.05,0.10,100); 
+    else
+        range_feature = linspace(0.0,0.23,100);
+    end
+    
+    band_width = 0.006;
+else
+    error('Wrong dataset.');
+end
 
 
 dataset_h_size = length(dataset_h);

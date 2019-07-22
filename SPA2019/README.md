@@ -17,7 +17,7 @@ Given that mean age for healthy group was about 17 years younger than ALS patien
 group. The correction was applied to the data of healthy speakers and ALS patients.
 
 ## Acoustical features
-The foloowing acoustical features were extracted:
+The folowing acoustical features were extracted:
 
 - Jitter::local
 - Jitter::RAP
@@ -41,6 +41,7 @@ In order to visualize the parameters of voice in HC and ALS groups we calculate 
 |Shimmer::APQ3<img src="image/S_apq3_stat_no_age_corr.png" width="400"> | Shimmer::APQ3<img src="image/S_apq3_stat_with_age_corr.png" width="400">|
 |Shimmer::APQ5<img src="image/S_apq5_stat_no_age_corr.png" width="400"> | Shimmer::APQ5<img src="image/S_apq5_stat_with_age_corr.png" width="400">|
 |Shimmer::APQ11<img src="image/S_apq11_stat_no_age_corr.png" width="400"> | Shimmer::APQ11<img src="image/S_apq11_stat_with_age_corr.png" width="400">|
+|PVI<img src="image/PVI_stat_no_age_corr.png" width="400"> | PVI<img src="image/PVI_stat_with_age_corr.png" width="400">|
 
 ## Classification
 For binary classification task of discriminating between the two classes of normal and pathological cases two machine-learning approaches were used:

@@ -16,6 +16,18 @@ beginning and ending of each utterance, removing the onset and offset effects in
 Given that mean age for healthy group was about 17 years younger than ALS patients, we applied linear regression technique to remove age effect using the data of the healthy
 group. The correction was applied to the data of healthy speakers and ALS patients.
 
+## Acoustical features
+The foloowing acoustical features were extracted:
+
+- Jitter::local
+- Jitter::RAP
+- Jitter::PPQ
+- Shimmer::local
+- Shimmer::APQ3
+- Shimmer::APQ5
+- Shimmer::APQ11
+- Pathology vibrato index (PVI) 
+
 
 ## Voices parameters
 In order to visualize the parameters of voice in HC and ALS groups we calculate statistics for the features used in the study.
@@ -41,27 +53,29 @@ We performed ALS classification of voice samples using following three feature s
 2) shimmers/jitters extracted using the waveform matching method with phase contrained (WM with PC); 
 3) the same as in previous case but with PVI (Pathology Vibrato Index).
 
+The dimensionality _D_ of the  feature sets was low (_D_=7 for 1st and 2nd and _D_=8 for 3rd) therefore we have performed exhaustive search through all possible feature subset to find the best one.
+
 *Table - LDA-based classification*
 
 | Features   | Averaved Recall  |  Accuracy | Sensitivity | Specificity |
 | :--------: | :--------------: | :-------: | :---------: | :---------: | 
-|  |  |  | PRAAT features | |
+|  |  |  | _PRAAT features_ | |
 | [S:apq5 S:apq11] | 83.1% | 81.1+/-1.9  | 83.0+/-5.6  | 83.1+/-1.4 |
-|  |  |  | Features based on WM with PC | |
+|  |  |  | _Features based on WM with PC_ | |
 | [J:loc J:ppq S:apq3 S:apq11] | 86.0% | 86.4+/-2.3  | 85.0+/-3.3  | 87.0+/-2.6 |
-|  |  |  | Features based on WM with PC + PVI | |
-| [S:loc S:apq3 S:apq11 PVI] | 89.5% | 90.7+/-1.7  | 86.7+/-0.1  | 92.2+/-2.3 |
+|  |  |  | _Features based on WM with PC + PVI_ | |
+| [S:loc S:apq3 S:apq11 PVI] | **89.5%** | 90.7+/-1.7  | **86.7+/-0.1**  | 92.2+/-2.3 |
 
 *Table - kNN-based classification*
 
 | Features   | Averaved Recall  |  Accuracy | Sensitivity | Specificity |
 | :--------: | :--------------: | :-------: | :---------: | :---------: | 
-|  |  |  | PRAAT features | |
+|  |  |  | _PRAAT features_ | |
 | [J:rap S:loc S:apq3 S:apq11] | 76.0% | 84.6+/-2.2  | 56.8+/-4.8  | 95.3+/-2.1 |
-|  |  |  | Features based on WM with PC | |
+|  |  |  | _Features based on WM with PC_ | |
 | [J:loc J:rap J:ppq S:apq5 S:apq11] | 81.0% | 87.3+/-2.1  | 66.8+/-4.9  | 95.1+/-2.2 |
-|  |  |  | Features based on WM with PC + PVI | |
-| [S:loc S:apq3 S:apq11 PVI] | 86.9% | 91.6+/-2.3  | 76.3+/-5.8  | 97.5+/-1.7 |
+|  |  |  | _Features based on WM with PC + PVI_ | |
+| [S:loc S:apq3 S:apq11 PVI] | 86.9% | **91.6+/-2.3**  | 76.3+/-5.8  | **97.5+/-1.7** |
 
 ##  Database details
 *Table - ALS patients*

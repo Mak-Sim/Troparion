@@ -1,24 +1,16 @@
-%% 1. Choose dataset to see statistics
-type = 'trop';  % parameters obtained using Troparion toolset
-% type = 'praat'; % parameters obtained using PRAAT system
+%% 1. Choose dataset to do, or not age correction
+addpath('..\SPA2019');
 
 % age_corr = true; 
 age_corr = false;
 
-if (strcmpi(type,'trop'))
-    load('dataset_trop_h.mat');
-    load('dataset_trop_p.mat');
-    if age_corr    
-        [dataset_p, dataset_h] = age_effect_remove(dataset_trop_p, dataset_trop_h);
-    else
-        dataset_p = dataset_trop_p;
-        dataset_h = dataset_trop_h;
-    end
-elseif (strcmpi(type,'praat'))
-    Dataset_praat;
-    [dataset_p, dataset_h] = age_effect_remove(dataset_praat_p, dataset_praat_h);
+load('dataset_trop_ext_h.mat');
+load('dataset_trop_ext_p.mat');
+if age_corr    
+    [dataset_p, dataset_h] = age_effect_remove(dataset_trop_p, dataset_trop_h);
 else
-    error('Unknown source type.');
+    dataset_p = dataset_trop_p;
+    dataset_h = dataset_trop_h;
 end
 
 %% 2. Choose one parameter
@@ -44,19 +36,26 @@ end
 % % range_feature = linspace(-0.4,0.8,100);  % age effect removed
 % % band_width = 0.05;
 
+% Uncomment the following lines to see Jitter:PPQ55 statistics
+% % feature = 'J_{ppq55}';
+% % ind = 4;
+% % range_feature = linspace(0.0,2.3,100);
+% % % range_feature = linspace(-0.4,0.8,100);  % age effect removed
+% % band_width = 0.06;
+
 % Uncomment the following lines to see Shimmer:loc statistics
-% feature = 'S_{loc}';
-% ind = 4;
-% if age_corr
-%     range_feature = linspace(-5,7,100); 
-% else
-%     range_feature = linspace(0,10,100); 
-% end
-% band_width = 0.4;
+% % feature = 'S_{loc}';
+% % ind = 5;
+% % if age_corr
+% %     range_feature = linspace(-5,7,100); 
+% % else
+% %     range_feature = linspace(0,10,100); 
+% % end
+% % band_width = 0.4;
 
 % Uncomment the following lines to see APQ3 statistics
 % % feature = 'S_{apq3}';
-% % ind = 5;
+% % ind = 6;
 % % if age_corr
 % %     range_feature = linspace(-3,5,100);
 % % else
@@ -66,7 +65,7 @@ end
 
 % Uncomment the following lines to see APQ5 statistics
 % % feature = 'S_{apq5}';
-% % ind = 6;
+% % ind = 7;
 % % if age_corr
 % %     range_feature = linspace(-2.8,4.1,100);
 % % else
@@ -76,8 +75,7 @@ end
 
 % Uncomment the following lines to see APQ11 statistics
 % % feature = 'S_{apq11}';
-% % ind = 7;
-% %  
+% % ind = 8;
 % % if age_corr    
 % %     range_feature = linspace(-3.1,5.0,100);
 % % else
@@ -85,21 +83,65 @@ end
 % % end
 % % band_width = 0.3;
 
-% Uncomment the following lines to see PVI statistics
-if (strcmpi(type,'trop'))
-    feature = 'PVI'; % PVI only for Tropation-based dataset
-    ind = 8;
-    if age_corr    
-        range_feature = linspace(-0.05,0.10,100); 
-    else
-        range_feature = linspace(0.0,0.23,100);
-    end
-    
-    band_width = 0.006;
-else
-    error('Wrong dataset.');
-end
+% Uncomment the following lines to see APQ55 statistics
+% % feature = 'S_{apq55}';
+% % ind = 9;
+% % if age_corr    
+% %     range_feature = linspace(-3.1,5.0,100);
+% % else
+% %     range_feature = linspace(-0.2,12.1,100);
+% % end
+% % band_width = 0.5;
 
+% % % Uncomment the following lines to see PVI statistics
+% % feature = 'PVI';
+% % ind = 10;
+% % if age_corr
+% %     range_feature = linspace(-0.05,0.10,100);
+% % else
+% %     range_feature = linspace(0.0,0.23,100);
+% % end
+% % band_width = 0.006;
+
+
+% Uncomment the following lines to see DPF statistics
+% % feature = 'DPF';
+% % ind = 11;
+% % if age_corr    
+% %     range_feature = linspace(-3.1,5.0,100);
+% % else
+% %     range_feature = linspace(35,95,100);
+% % end
+% % band_width = 1.9;
+
+% Uncomment the following lines to see PFR statistics
+% % feature = 'PFR';
+% % ind = 12;
+% % if age_corr    
+% %     range_feature = linspace(-3.1,5.0,100);
+% % else
+% %     range_feature = linspace(0,0.6,100);
+% % end
+% % band_width = 0.035;
+
+% Uncomment the following lines to see DPF statistics
+% % feature = 'SD_{f_o}';
+% % ind = 13;
+% % if age_corr    
+% %     range_feature = linspace(-3.1,5.0,100);
+% % else
+% %     range_feature = linspace(0,10,800);
+% % end
+% % band_width = 0.25;
+
+feature = 'PPE';
+ind = 14;
+if age_corr    
+    range_feature = linspace(-3.1,5.0,100);
+else
+    range_feature = linspace(0.25,4.0,200);
+end
+band_width = 0.2;
 
 dataset_h_size = length(dataset_h);
 dataset_p_size = length(dataset_p);

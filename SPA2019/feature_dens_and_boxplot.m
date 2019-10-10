@@ -13,20 +13,22 @@ p_len = length(p_data);
 Group = [];
 for n=1:length(h_data)
     data(n) = h_data(n);
-    Group = [Group; 'Healthy'];
+%     Group = [Group; 'Healthy'];
+    Group = [Group; 'Контроль'];
 end
 k = 1;
 for n=h_len+1:h_len+p_len
     data(n) = p_data(k);
-    Group = [Group; 'ALS    '];
+%     Group = [Group; 'ALS    '];
+    Group = [Group; 'БАС     '];
     k = k + 1;
 end
 
 %% Drawing
-    FontSize = 12;
-    FontSize2 = 16;
+    FontSize = 11;
+    FontSize2 = 14;
     
-    Width=round(450);
+    Width=round(480);
     Height=round(200);
     figure('Position',[100 100 100+Width 100+Height]);
     
@@ -77,7 +79,8 @@ end
     ax2_height = ax1_height;
     axes('Position',[ax2_x_offset, ax2_y_offset, ax2_width, ax2_height]);
 
-    hLine=plot(x,y,'DisplayName','Healthy');
+%     hLine=plot(x,y,'DisplayName','Healthy');
+    hLine=plot(x,y,'DisplayName','Контроль');
     
     hYLabel = ylabel([]);
 
@@ -116,8 +119,9 @@ end
 
     hold on;
 
-    hLine1=plot(x1,y1,'--','DisplayName','ALS');
-        xlim(feature_lim);
+%     hLine1=plot(x1,y1,'--','DisplayName','ALS');
+    hLine1=plot(x1,y1,'--','DisplayName','БАС');
+    xlim(feature_lim);
     
     set(hLine1                               ,...
         'Color',[0,0,0.0]          ,...

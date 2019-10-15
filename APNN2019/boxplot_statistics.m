@@ -23,11 +23,12 @@ end
 % % band_width = 0.070;
 
 % Uncomment the following lines Jitter:RAP statistics
-% % feature = 'J_{rap}';
+% % % feature = 'J_{rap}';
+% % feature = 'J_{3}';
 % % ind = 2;
-% % % range_feature = linspace(0,1.1,100);  
-% % range_feature = linspace(-0.5,0.9,100); % age effect removed
-% % band_width = 0.04;
+% % range_feature = linspace(0,1.1,100);  
+% % % range_feature = linspace(-0.5,0.9,100); % age effect removed
+% % band_width = 0.035;
 
 % Uncomment the following lines to see Jitter:PPQ5 statistics
 % % feature = 'J_{ppq5}';
@@ -54,14 +55,15 @@ end
 % % band_width = 0.4;
 
 % Uncomment the following lines to see APQ3 statistics
-% % feature = 'S_{apq3}';
+% % % feature = 'S_{apq3}';
+% % feature = 'S_{3}';
 % % ind = 6;
 % % if age_corr
 % %     range_feature = linspace(-3,5,100);
 % % else
 % %     range_feature = linspace(-1,7,100); 
 % % end
-% % band_width = 0.4;
+% % band_width = 0.2;
 
 % Uncomment the following lines to see APQ5 statistics
 % % feature = 'S_{apq5}';
@@ -84,7 +86,8 @@ end
 % % band_width = 0.3;
 
 % Uncomment the following lines to see APQ55 statistics
-% % feature = 'S_{apq55}';
+% feature = 'S_{apq55}';
+% % feature = 'S_{55}';
 % % ind = 9;
 % % if age_corr    
 % %     range_feature = linspace(-3.1,5.0,100);
@@ -110,9 +113,9 @@ end
 % % if age_corr    
 % %     range_feature = linspace(-3.1,5.0,100);
 % % else
-% %     range_feature = linspace(35,95,100);
+% %     range_feature = linspace(35,105,100);
 % % end
-% % band_width = 1.9;
+% % band_width = 2.5;
 
 % Uncomment the following lines to see PFR statistics
 % % feature = 'PFR';
@@ -122,7 +125,7 @@ end
 % % else
 % %     range_feature = linspace(0,0.6,100);
 % % end
-% % band_width = 0.035;
+% % band_width = 0.03;
 
 % Uncomment the following lines to see DPF statistics
 % % feature = 'SD_{f_o}';
@@ -141,7 +144,7 @@ if age_corr
 else
     range_feature = linspace(0.25,4.0,200);
 end
-band_width = 0.2;
+band_width = 0.14;
 
 dataset_h_size = length(dataset_h);
 dataset_p_size = length(dataset_p);

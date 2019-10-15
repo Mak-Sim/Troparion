@@ -4,7 +4,7 @@ addpath('IRAPT/IRAPT_web');
 addpath('Perturbation_analysis');
 
 % [s,fs] = audioread('SPA2019/Pathology\068.wav');
-[s,fs] = audioread('SPA2019/Control\010.wav');
+[s,fs] = audioread('SPA2019/Control\077.wav');
 
 [Fo, ~, time_marks] = irapt(s, fs, 'irapt1','sustain phonation');  
     

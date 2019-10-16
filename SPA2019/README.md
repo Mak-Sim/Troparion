@@ -1,7 +1,7 @@
 # Bulbar ALS Detection Based on Analysis of Voice Perturbation and Vibrato
 Voice database and supplementary information to paper 
 
-_M. Vashkevich, Yu. Rushkevich, A. Petrovsky "Bulbar ALS Detection Based on Analysis of Voice Perturbation and Vibrato" accepted to International Conference Signal Processing: Algorithms, Architectures, Arrangements, and Applications 2019_ (https://zueps41p.cse.put.poznan.pl).
+_M. Vashkevich, Yu. Rushkevich, A. Petrovsky ["Bulbar ALS Detection Based on Analysis of Voice Perturbation and Vibrato,"](https://www.bsuir.by/m/12_100229_1_139167.pdf) Proceedings of inter. conf. Signal Processing: Algorithms, Architectures, Arrangements, and Applications (SPA), Poznan, Poland, 18-20 Sept. 2019. – P. 267-272._
 
 ## Abstract
 The purpose of the work was to verify the sutability of the sustain vowel phonation test for automatic detection of patients with ALS (amyotrophic lateral sclerosis). Enhanced procedure for separation of voice signal into fundamental periods that requires for calculation of perturbation measurements (such as jitter and shimmer) is proposed. The second contribution: the method for quantitative assessment of pathological vibrato manifestations in sustain vowel phonation. The study’s experiments

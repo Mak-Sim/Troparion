@@ -14,7 +14,7 @@ Matlab tools for pathological voice analysis. Currently the toolset is under dev
 * DPF – directional perturbation factor
 * PFR – phonatory frequency range
 * PPE - pitch period entropy (based on the work of [Max A. Little](<https://ieeexplore.ieee.org/document/4636708>))
-* PVI - pathological vibrato index (original feature for [ALS detection](<https://www.bsuir.by/m/12_100229_1_139167.pdf>))
+* PVI - pathological vibrato index (original feature for [ALS detection](<https://www.bsuir.by/m/12_100229_1_139167.pdf>), see details in [[Vashkevich-21]](https://www.sciencedirect.com/science/article/abs/pii/S1746809420304614))
 * Suprasegmental MFCCs
 * Harmonics parameters of sustain vowels (introduced in [[Vashkevich-21]](https://www.sciencedirect.com/science/article/abs/pii/S1746809420304614))
 

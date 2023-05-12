@@ -12,7 +12,7 @@ addpath('Perturbation_analysis');
 [Fo_periods] = WM_phase_const(s,Fo,time_marks,fs);
 [periods_Amp]= amp_extract(Fo_periods,s);
     
-%% Jitter
+%% Perturbation parameters calculation
 J_loc  = shim_local(Fo_periods);
 J_rap  = jitter_rap(Fo_periods);
 J_ppq5 = jitter_ppq5(Fo_periods);
@@ -43,3 +43,10 @@ fprintf('PVI           = %1.3f \n', PVI);
 fprintf('PPF           = %1.3f \n', PPF);
 fprintf('DPF           = %1.2f %%\n', DPF);
 fprintf('PPE           = %1.2f \n', PPE);
+
+%% Harmonic parameters calculation
+[Hp_mean, Hp_SD, RelHp] = harmonics_analysis(s, Fo_periods);
+fprintf('Hp_mean[1]       = %1.3f \n', Hp_mean(1));
+fprintf('Hp_SD[1]         = %1.2f \n', Hp_SD(1));
+fprintf('RelHp[1]         = %1.2f \n', RelHp(1));
+
